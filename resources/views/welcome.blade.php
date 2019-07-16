@@ -20,8 +20,30 @@
                 v-model=" drawer "
             >
 
+                <v-toolbar flat>
 
+                    <v-toolbar-side-icon
+                        @click.stop=" drawer = !drawer "
+                    ></v-toolbar-side-icon>
+                    <v-toolbar-title>CSV File Manager</v-toolbar-title>
+                </v-toolbar>
+                <v-list>
+
+                    <v-list-tile @click="">
+
+                        <v-list-tile-action>
+
+                            <v-icon>dashboard</v-icon>
+                        </v-list-tile-action>
+
+                        <v-list-tile-title>
+
+                            Home
+                        </v-list-tile-title>
+                    </v-list-tile>
+                </v-list>
             </v-navigation-drawer>
+
             <v-toolbar app>
 
                 <v-toolbar-side-icon
@@ -30,9 +52,11 @@
                 <v-toolbar-title>CSV File Manager</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-toolbar-items class="hidden-sm-and-down">
-                    {{-- <v-btn flat>Link One</v-btn> --}}
+                    <v-btn flat>Home</v-btn>
                 </v-toolbar-items>
             </v-toolbar>
+
+
             <v-content>
                 <v-container fluid>
 
