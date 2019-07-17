@@ -9,6 +9,9 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\Imports\UsersImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\User;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Log;
+use App\Exports\UsersExport;
 
 class Controller extends BaseController
 {
@@ -25,8 +28,15 @@ class Controller extends BaseController
     public function import()
     {
 
-        Excel::import( new UsersImport, 'users.xlsx' );
+        Log::info( request()->file( 'file' ) );
+
+        Excel::import( new UsersImport, request()->file( 'file' ) );
 
         return redirect( '/' );
+    }
+
+    public function export()
+    {
+        return Excel::download( new UsersExport, 'allusers.xlsx' );
     }
 }

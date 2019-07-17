@@ -12,4 +12,5 @@
 */
 
 Route::get( '/', 'Controller@index' );
-Route::get( '/import', 'Controller@import' );
+Route::post( '/import', 'Controller@import' )->name( 'import' );
+Route::get( '/export', 'Controller@export' )->name( 'export' );

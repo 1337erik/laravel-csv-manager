@@ -64,6 +64,19 @@
                     <data-table
                         :items="{{ $users }}"
                     ></data-table>
+
+
+                    <form class="mt-4" action="{{ route( 'import' ) }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+
+                        <input type="file" name="file" class="form-control">
+
+                        <br>
+                        <v-btn class="primary white--text" type="submit">Import User Data</v-btn>
+
+                        <v-btn class="secondary white--text" href="{{ route( 'export' ) }}">Export User Data</v-btn>
+                    </form>
+
                 </v-container>
             </v-content>
             <v-footer app inset>
