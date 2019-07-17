@@ -23,6 +23,7 @@
                 <v-toolbar flat>
 
                     <v-toolbar-side-icon
+                        class="hidden-md-and-up"
                         @click.stop=" drawer = !drawer "
                     ></v-toolbar-side-icon>
                     <v-toolbar-title>CSV File Manager</v-toolbar-title>
@@ -60,7 +61,9 @@
             <v-content>
                 <v-container fluid>
 
-                    yes send it
+                    <data-table
+                        :items="{{ $users }}"
+                    ></data-table>
                 </v-container>
             </v-content>
             <v-footer app inset>
